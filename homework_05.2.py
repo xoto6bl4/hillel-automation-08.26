@@ -21,3 +21,15 @@ people_records = [
   ('Ava', 'White', 42, 'Journalist', 'San Diego'),
   ('Ethan', 'Anderson', 36, 'Product Manager', 'Phoenix')
 ]
+people_records.insert(0, ('Charles', 'Leclerc', 16, 'Carlos', 'Sainz'))
+people_records[1], people_records[5] = people_records[5], people_records[1]
+result = (
+    people_records[6][2] >= 30
+    and
+    people_records[10][2] >= 30
+    and
+    people_records[13][2] >= 30
+)
+print(result)
+print(people_records[6], people_records[10], people_records[13])
+print(people_records)
