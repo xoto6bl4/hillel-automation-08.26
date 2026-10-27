@@ -35,11 +35,16 @@ class ImageServerTests(unittest.TestCase):
         response = self.client.get("/image/photo%201.jpg", headers={"Content-Type": "image"})
         self.assertEqual(response.data, b"jpeg content")
         response.close()
+        response = self.client.get(image_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data, b"jpeg content")
+        response.close()
 
         deleted = self.client.delete("/delete/photo%201.jpg")
         self.assertEqual(deleted.status_code, 200)
         self.assertEqual(deleted.json["message"], "Image photo 1.jpg deleted")
         self.assertEqual(self.client.get("/image/photo%201.jpg").status_code, 404)
+        self.assertEqual(self.client.get(image_url).status_code, 404)
 
     def test_missing_image_and_unknown_content_type(self):
         self.assertEqual(self.client.post("/upload").status_code, 400)

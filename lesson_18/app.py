@@ -23,6 +23,11 @@ def upload_image():
     return jsonify({'image_url': request.host_url + 'uploads/' + image.filename}), 201
 
 
+@app.route('/uploads/<filename>', methods=['GET'])
+def uploaded_image(filename):
+    return send_from_directory(upload_directory, filename)
+
+
 @app.route('/image/<filename>', methods=['GET'])
 def get_image(filename):
     content_type = request.headers.get('Content-Type')
