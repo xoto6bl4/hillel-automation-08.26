@@ -1,13 +1,13 @@
 """Upload an image, get its URL, then delete it.
 
-Start the server first: cd server && python app.py
+Start the server first: python app.py (from lesson_18)
 Run this script: python homework_18.py path/to/photo.jpg
 """
 
 import mimetypes
 import sys
 from pathlib import Path
-from urllib.parse import urlsplit
+from urllib.parse import quote, urlsplit
 
 import requests
 
@@ -31,8 +31,7 @@ def upload_get_delete(image_path):
     image_url = response.json()["image_url"]
     print("Uploaded:", image_url)
 
-    # The filename in the returned URL is already URL-encoded.
-    filename = urlsplit(image_url).path.rsplit("/", 1)[-1]
+    filename = quote(urlsplit(image_url).path.rsplit("/", 1)[-1], safe="%")
     response = requests.get(
         f"{BASE_URL}/image/{filename}", headers={"Content-Type": "text"}, timeout=10
     )
@@ -41,7 +40,7 @@ def upload_get_delete(image_path):
 
     response = requests.delete(f"{BASE_URL}/delete/{filename}", timeout=10)
     response.raise_for_status()
-    print("Deleted:", response.json()["image_url"])
+    print("Deleted:", response.json()["message"])
 
 
 if __name__ == "__main__":
