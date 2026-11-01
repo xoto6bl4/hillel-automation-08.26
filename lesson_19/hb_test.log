@@ -1,0 +1,5 @@
+ERROR Timestamp 04:51:17 | heartbeat 35 seconds since 04:50:42 (source line 1189)
+ERROR Timestamp 03:39:11 | heartbeat 35 seconds since 03:38:36 (source line 2762)
+ERROR Timestamp 02:27:06 | heartbeat 36 seconds since 02:26:30 (source line 4335)
+WARNING Timestamp 01:35:10 | heartbeat 32 seconds since 01:34:38 (source line 5468)
+ERROR Timestamp 01:14:58 | heartbeat 35 seconds since 01:14:23 (source line 5908)
