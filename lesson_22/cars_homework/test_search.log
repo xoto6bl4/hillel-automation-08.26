@@ -1,0 +1,8 @@
+2026-11-19 01:07:13,492 [INFO] Аутентифікація пройшла, токен додано в заголовки сесії
+2026-11-19 01:07:13,497 [INFO] GET /cars params={'sort_by': 'price', 'limit': 5} -> 200
+2026-11-19 01:07:13,500 [INFO] GET /cars params={'sort_by': 'year', 'limit': 3} -> 200
+2026-11-19 01:07:13,503 [INFO] GET /cars params={'sort_by': 'engine_volume', 'limit': 10} -> 200
+2026-11-19 01:07:13,507 [INFO] GET /cars params={'sort_by': 'brand', 'limit': 7} -> 200
+2026-11-19 01:07:13,512 [INFO] GET /cars params={'limit': 4} -> 200
+2026-11-19 01:07:13,516 [INFO] GET /cars params={'sort_by': 'price'} -> 200
+2026-11-19 01:07:13,520 [INFO] GET /cars params={'sort_by': 'year', 'limit': 25} -> 200
